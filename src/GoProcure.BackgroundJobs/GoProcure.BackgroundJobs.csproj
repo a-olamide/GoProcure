@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-GoProcure.BackgroundJobs-bf793d87-bc3c-4f9a-815c-01f3df2f156b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GoProcure.Infrastructure\GoProcure.Infrastructure.csproj" />
+    <ProjectReference Include="..\GoProcure.Application\GoProcure.Application.csproj" />
+    <ProjectReference Include="..\GoProcure.Domain\GoProcure.Domain.csproj" />
+  </ItemGroup>
+</Project>

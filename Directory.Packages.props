@@ -1,0 +1,44 @@
+<Project>
+  <ItemGroup>
+    <!-- Web & Auth -->
+    <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.5" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+    <!-- CQRS & Validation & Mapping -->
+    <PackageVersion Include="MediatR" Version="12.2.0" />
+    <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageVersion Include="FluentValidation" Version="11.9.0" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageVersion Include="AutoMapper" Version="13.0.1" />
+    <PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="13.0.1" />
+
+    <!-- EF Core -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.5" />
+
+    <!-- Observability -->
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageVersion Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+    <PackageVersion Include="Serilog.Enrichers.Process" Version="2.0.2" />
+    <PackageVersion Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.8.1" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.8.1" />
+
+    <!-- HealthChecks (optional nice to have) -->
+    <PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.1" />
+
+    <!-- Email (if using SMTP) -->
+    <PackageVersion Include="MailKit" Version="4.7.1" />
+
+    <!-- Testing -->
+    <PackageVersion Include="FluentAssertions" Version="6.12.0" />
+    <PackageVersion Include="Moq" Version="4.20.70" />
+    <PackageVersion Include="DotNet.Testcontainers" Version="3.8.0" />
+
+    <!-- Tools (local) -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5" />
+  </ItemGroup>
+</Project>
