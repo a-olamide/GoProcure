@@ -17,6 +17,15 @@
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\" />
+    <Folder Include="Email\" />
+    <Folder Include="Idempotency\" />
+    <Folder Include="Outbox\" />
+    <Folder Include="Persistence\" />
+    <Folder Include="Policies\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

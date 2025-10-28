@@ -18,4 +18,8 @@
     <ProjectReference Include="..\GoProcure.Application\GoProcure.Application.csproj" />
     <ProjectReference Include="..\GoProcure.Domain\GoProcure.Domain.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Workers\" />
+  </ItemGroup>
 </Project>
