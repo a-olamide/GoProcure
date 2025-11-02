@@ -15,6 +15,9 @@ namespace GoProcure.Application
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
 
+            services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
+
+
             // Register pipeline behaviors
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));

@@ -21,9 +21,6 @@
     <Folder Include="Auth\" />
     <Folder Include="Email\" />
     <Folder Include="Idempotency\" />
-    <Folder Include="Outbox\" />
-    <Folder Include="Persistence\" />
-    <Folder Include="Policies\" />
   </ItemGroup>
 
   <PropertyGroup>

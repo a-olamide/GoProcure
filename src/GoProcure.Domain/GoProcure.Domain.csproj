@@ -8,11 +8,6 @@
 
   <ItemGroup>
     <Folder Include="bin\Debug\net9.0\" />
-    <Folder Include="Common\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Enums\" />
-    <Folder Include="Events\" />
-    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>

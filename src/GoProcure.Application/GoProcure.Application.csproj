@@ -14,9 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstraction\" />
-    <Folder Include="Behaviors\" />
-    <Folder Include="CQRS\" />
     <Folder Include="Mappings\" />
   </ItemGroup>
 

@@ -8,11 +8,25 @@ using System.Threading.Tasks;
 
 namespace GoProcure.Domain.ValueObjects
 {
-    public readonly record struct PhoneNumber(string Value)
+    public sealed record PhoneNumber
     {
+        public string Value { get; init; } = default!;
+
         // Accept + and digits, 8..15 digits total (common E.164 range)
         private static readonly Regex E164 = new(@"^\+[1-9]\d{7,14}$", RegexOptions.Compiled);
 
+        private PhoneNumber() //for EF
+        {
+            
+        }
+        public PhoneNumber(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentNullException(nameof(value));
+
+            if (string.IsNullOrWhiteSpace(value) || !E164.IsMatch(value))
+                throw new ArgumentException("Invalid email.");
+            Value = value;
+        }
         public static PhoneNumber Create(string raw)
         {
             if (string.IsNullOrWhiteSpace(raw))

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GoProcure.Domain.ValueObjects
 {
-    public sealed class BankAccountVO
+    public sealed record BankAccountVO
     {
         public string BankName { get; private set; } = default!;
         public string AccountName { get; private set; } = default!;

@@ -1,5 +1,6 @@
 ﻿using GoProcure.Domain.Common;
 using GoProcure.Domain.ValueObjects;
+using System.ComponentModel.DataAnnotations;
 
 namespace GoProcure.Domain.Entities
 {
@@ -7,6 +8,7 @@ namespace GoProcure.Domain.Entities
     {
         public Guid PurchaseRequestId { get; private set; }
         public Guid ItemId { get; private set; }
+        [MaxLength(2000)]
         public string Description { get; private set; } = default!;
         public int Qty { get; private set; }
         public Money UnitPrice { get; private set; }

@@ -18,6 +18,16 @@ namespace GoProcure.Domain.Common
 
         [Timestamp] public byte[] RowVersion { get; protected set; } = Array.Empty<byte>();
 
+        public void SetCreatedAtUtc()
+        {
+            CreatedAtUtc = DateTime.UtcNow;
+        }
+
+        public void SetModifiedAtUtc()
+        {
+            ModifiedAtUtc = DateTime.UtcNow;
+        }
+
         public void SoftDelete() => IsDeleted = true;
     }
 }

@@ -33,7 +33,9 @@ namespace GoProcure.Domain.Entities
             Id = Guid.NewGuid();
             if (requesterId == Guid.Empty) throw new DomainException("RequesterId required.");
             if (string.IsNullOrWhiteSpace(department)) throw new DomainException("Department required.");
-            RequesterId = requesterId; Department = department.Trim(); BudgetLimit = budgetLimit;
+            RequesterId = requesterId; 
+            Department = department.Trim(); 
+            BudgetLimit = budgetLimit;
 
             AddDomainEvent(new PurchaseRequestCreated(Id, requesterId));
         }
@@ -103,8 +105,8 @@ namespace GoProcure.Domain.Entities
         private void RecomputeTotalAndCheckBudget()
         {
             Total = _lines.Aggregate(Money.Zero(), (acc, l) => acc.Add(l.Subtotal));
-            if (BudgetLimit is not null && Total.Amount > BudgetLimit.Value.Amount)
-                throw new DomainException($"Total {Total.Amount} exceeds budget {BudgetLimit.Value.Amount}.");
+            if (BudgetLimit is not null && Total.Amount > BudgetLimit.Amount)
+                throw new DomainException($"Total {Total.Amount} exceeds budget {BudgetLimit.Amount}.");
         }
     }
 }
