@@ -1,6 +1,7 @@
 ﻿using GoProcure.Application.CQRS.PurchaseRequests.Commands.CreatePurchaseRequest;
 using GoProcure.Application.CQRS.PurchaseRequests.Queries.GetPurchaseRequestById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoProcure.Api.Controllers
@@ -24,6 +25,12 @@ namespace GoProcure.Api.Controllers
         {
             var result = await _mediator.Send(new GetPurchaseRequestByIdQuery(id));
             return result is null ? NotFound() : Ok(result);
+        }
+        [Authorize(Policy = "PR.Approve")]
+        [HttpPost("{id:guid}/approve")]
+        public Task<IActionResult> Approve() 
+        {
+            return null;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GoProcure.Application.CQRS.PurchaseRequests.Commands.CreatePurchaseReq
     {
         public CreatePurchaseRequestValidator()
         {
-            RuleFor(x => x.RequesterId).NotEmpty();
+            //RuleFor(x => x.RequesterId).NotEmpty();
             RuleFor(x => x.Department).NotEmpty().MaximumLength(100);
             RuleFor(x => x.Currency).NotEmpty().Length(3);
         }

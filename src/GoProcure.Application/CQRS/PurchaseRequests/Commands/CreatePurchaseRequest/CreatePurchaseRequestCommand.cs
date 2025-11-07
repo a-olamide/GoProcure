@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GoProcure.Application.CQRS.PurchaseRequests.Commands.CreatePurchaseRequest
 {
     public sealed record CreatePurchaseRequestCommand(
-    Guid RequesterId,
+    //Guid RequesterId,
     string Department,
     string Currency = "USD"
 ) : IRequest<PurchaseRequestDto>;

@@ -8,8 +8,8 @@ namespace GoProcure.Application.Abstraction
 {
     public interface ICurrentUser
     {
-        string? UserId { get; }
-        string? UserName { get; }
-        bool IsInRole(string role);
+        bool IsAuthenticated { get; }
+        Guid? UserId { get; }          // from token/claims
+        string? Department { get; }
     }
 }

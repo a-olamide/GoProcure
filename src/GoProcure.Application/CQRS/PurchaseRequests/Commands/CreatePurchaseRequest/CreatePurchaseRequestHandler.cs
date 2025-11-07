@@ -17,22 +17,34 @@ namespace GoProcure.Application.CQRS.PurchaseRequests.Commands.CreatePurchaseReq
     public sealed class CreatePurchaseRequestHandler
         : IRequestHandler<CreatePurchaseRequestCommand, PurchaseRequestDto>
     {
+        private readonly ICurrentUser _current;
         private readonly IPurchaseRequestRepository _repo;
         private readonly IBudgetPolicy _budget;
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
 
         public CreatePurchaseRequestHandler(
+            ICurrentUser current,
             IPurchaseRequestRepository repo,
             IBudgetPolicy budget,
             IUnitOfWork uow,
             IMapper mapper)
-        { _repo = repo; _budget = budget; _uow = uow; _mapper = mapper; }
+        {
+            _current = current;
+            _repo = repo; _budget = budget; _uow = uow; _mapper = mapper;
+        }
 
         public async Task<PurchaseRequestDto> Handle(CreatePurchaseRequestCommand request, CancellationToken ct)
         {
+            if (!_current.IsAuthenticated || _current.UserId is null)
+                throw new UnauthorizedAccessException("User not authenticated.");
+
+            var dept = string.IsNullOrWhiteSpace(request.Department)
+                ? _current.Department ?? "UNKNOWN"
+                : request.Department;
+
             var limit = _budget.GetBudgetLimitFor(request.Department);
-            var pr = new PurchaseRequest(request.RequesterId, request.Department,
+            var pr = new PurchaseRequest(_current.UserId.Value, request.Department,
                                          budgetLimit: limit.Amount > 0 ? limit : null);
 
             await _repo.AddAsync(pr, ct);
